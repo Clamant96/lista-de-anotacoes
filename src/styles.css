@@ -28,8 +28,8 @@ html, body {
 }
 
 :root {
-  --background-global: #f9f9f9;
-  --background-header: #f1f1f1;
+  --background-global: #d4f2ef;
+  --background-sidebar: #ffffff;
   --background-footer: #222222;
   --background-copyright: #191919;
   --background-menu-hover: #262626;
@@ -40,6 +40,9 @@ html, body {
   --text-menu-hover: #f1f1f1;
   --text-input: #c0bebe;
   --text-p: #acacac;
+  --text-green-titulo: #14706a;
+  --text-black-lista: #333534;
+  --text-qt-tens: #999999;
 
   --color-hr: #c9cacc;
 
@@ -137,7 +140,7 @@ h3 {
 }
 
 hr {
-  width: 66% !important;
+  width: 100%;
   height: auto;
 
   border-top: 1.7px solid var(--color-hr) !important;

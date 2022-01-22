@@ -16,19 +16,24 @@ export class ListaService {
 
   ) { }
 
+  getByIdLista(id: number): Observable<Lista> {
+
+    return this.http.get<Lista>(`${this.url}/lista/${id}`);
+  }
+
   portLista(lista: Lista): Observable<Lista> {
 
-    return this.http.post<Lista>(`${this.url}/endereco`, lista);
+    return this.http.post<Lista>(`${this.url}/lista`, lista);
   }
 
   putLista(lista: Lista): Observable<Lista> {
 
-    return this.http.put<Lista>(`${this.url}/endereco`, lista);
+    return this.http.put<Lista>(`${this.url}/lista`, lista);
   }
 
   deleteLista(id: number) {
 
-    return this.http.delete(`${this.url}/endereco/${id}`);
+    return this.http.delete(`${this.url}/lista/${id}`);
   }
 
 }

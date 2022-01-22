@@ -4,13 +4,27 @@
       <img src="../../assets/img/note.png" alt="">
     </div>
     <div class="card-login">
-        <h1>Cadastrar</h1>
+        <h1>
+          <img src="{{avatar}}" alt="">
+          Cadastrar
+        </h1>
 
         <div id="msgErro"></div>
         <div id="msgSucesso"></div>
 
         <div class="label-float">
             <input [(ngModel)]='usuario.username' type="text" id="usuario" placeholder="Usuário" required>
+        </div>
+
+        <div class="label-float">
+          <select (change)='selecaoAvatar($event)' name="avatar" id="avatar">
+              <option value="../../assets/img/avata_1.png">Avatar 1</option>
+              <option value="../../assets/img/avata_2.png">Avatar 2</option>
+              <option value="../../assets/img/avata_3.png">Avatar 3</option>
+              <option value="../../assets/img/avata_4.png">Avatar 4</option>
+              <option value="../../assets/img/avata_5.png">Avatar 5</option>
+              <option value="../../assets/img/avata_6.png">Avatar 6</option>
+          </select>
         </div>
 
         <div class="label-float">

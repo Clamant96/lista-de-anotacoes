@@ -68,6 +68,18 @@
 
   color: var(--text-white);
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.container-cadastro .pagina .card-login h1 img {
+  margin-right: 5%;
+
+  width: 20%;
+  height: auto;
+
 }
 
 .container-cadastro .pagina .card-login .label-float {

@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
       environment.username = this.usuarioLogin.username;
       environment.senha = this.usuarioLogin.senha;
       environment.id = this.usuarioLogin.id;
+      environment.avatar = this.usuarioLogin.avatar;
 
       /* ARMAZENA O TOKEN DO USUARIO NA VARIAVEL */
       this.tokenUsuario = this.usuarioLogin.token;
@@ -48,6 +49,7 @@ export class LoginComponent implements OnInit {
       console.log("Token: "+ environment.token);
       console.log("Usuario: "+ environment.username);
       console.log("Senha: "+ environment.senha);
+      console.log("Avatar: "+ environment.avatar);
 
       this.router.navigate(['/home']);
 

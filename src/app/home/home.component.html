@@ -1,7 +1,16 @@
 <section class="container-section">
   <nav>
     <ul>
-      <a *ngFor='let item of categoriaArray' (click)='findByIdListaCategoria(item.id)' >
+      <div class="perfil">
+        <img src="{{avatar}}" alt="{{username}}">
+        <p class="username">{{username}}</p>
+      </div>
+      <div class="nova-categoria">
+        <input [(ngModel)]='novaCategoria.nome' type="text" name="categoria" id="categoria" placeholder="Nova categoria" />
+        <button type="submit" (click)='adicionarCategoria()' >Adicionar</button>
+      </div>
+      <hr />
+      <a routerLink="/home" *ngFor='let item of categoriaArray' (click)='findByIdListaCategoria(item.id)' >
         <img src="../../assets/img/note.png" alt="{{item.nome}}">
         <p class="texto">{{item.nome}}</p>
         <p class="qt-tens">{{item.lista.length}}</p>
@@ -11,7 +20,47 @@
   <div class="lista-categoria">
     <h1>{{categoria.nome}}</h1>
     <ul>
-      <a *ngFor='let item of categoria.lista' >{{item.texto}}</a>
+      <a *ngFor='let item of categoria.lista' >
+        <div class="icone" *ngIf="item.ativo" (click)='alterarStatusItemLista(item)' >
+          <img src="../../assets/img/certo-icone.png" alt="{{item.texto}}">
+        </div>
+        <div class="icone" *ngIf="!item.ativo" (click)='alterarStatusItemLista(item)' >
+          <img src="../../assets/img/errado-icone.png" alt="{{item.texto}}">
+        </div>
+        <p class="texto-desativo" *ngIf="item.ativo" (click)='alterarStatusItemLista(item)' >
+          {{item.texto}}
+        </p>
+        <p class="texto-ativo" *ngIf="!item.ativo" (click)='alterarStatusItemLista(item)' >
+          {{item.texto}}
+        </p>
+        <a class="icone" data-bs-toggle="modal" data-bs-target="#putLista" (click)='carregaItemLista(item.id)' >
+          <img src="../../assets/img/editar-icone.png" alt="{{item.texto}}" >
+        </a>
+      </a>
+      <div class="novo-item-lista" *ngIf="categoria.nome != null" >
+        <input [(ngModel)]='novaLista.texto' type="text" name="lista" id="lista" placeholder="Novo item" />
+        <button type="submit" (click)='adicionarItemLista()' >Adicionar item</button>
+      </div>
     </ul>
   </div>
 </section>
+
+<!-- MODAL DE LISTA / PUT -->
+<div class="modal fade" id="putLista" tabindex="-1" role="dialog" aria-labelledby="modalPutLista" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title texto-bold" id="nomeCategoria">Atualizar Lista: {{carregaListaParaEdicao.texto}}</h2>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+          <input [(ngModel)]='carregaListaParaEdicao.texto' type="text" name="texto" class="modal-input" id="texto" placeholder="Texto">
+        </div>
+        <div class="modal-footer">
+            <button type="button" (click)='atualizaLista()' data-bs-dismiss="modal" aria-label="Close" >Atualizar</button>
+        </div>
+      </div>
+  </div>
+</div>

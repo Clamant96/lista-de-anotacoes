@@ -6,5 +6,6 @@ export const environment = {
   username: '',
   senha: '',
   categoria: [],
-  token: ''
+  token: '',
+  avatar: ''
 };

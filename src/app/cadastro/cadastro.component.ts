@@ -13,6 +13,8 @@ export class CadastroComponent implements OnInit {
   public usuario: Usuario = new Usuario();
   public confirmaSenha: string;
 
+  public avatar: string = '../../assets/img/avata_1.png';
+
   constructor(
     private usuarioService: UsuarioService,
     private router: Router,
@@ -27,6 +29,10 @@ export class CadastroComponent implements OnInit {
   confirmarSenha(event:any){
     this.confirmaSenha= event.target.value;
 
+  }
+
+  selecaoAvatar(event: any) {
+    this.avatar = event.target.value;
   }
 
   /* CADASTRA UM NOVO USUARIO NA BASE DE DADOS */

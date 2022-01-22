@@ -5,4 +5,5 @@ export class Usuario {
   public username: string;
   public senha: string;
   public categoria: Categoria[];
+  public avatar: string;
 }
