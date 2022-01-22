@@ -26,6 +26,9 @@ export class HomeComponent implements OnInit {
   public carregaListaParaEdicao: Lista = new Lista();
   public editaListaPUT: Lista = new Lista();
 
+  public carregaCategoriaParaEdicao: Categoria = new Categoria();
+  public editaCategoriaPUT: Categoria = new Categoria();
+
   public usuario: Usuario = new Usuario();
 
   public arrayTexto: string;
@@ -160,6 +163,36 @@ export class HomeComponent implements OnInit {
 
   atualizaLista() {
     console.log(this.carregaListaParaEdicao);
+
+    this.listaService.putLista(this.carregaListaParaEdicao).subscribe((resp: Lista) => {
+      console.log(resp);
+    });
+
+    setTimeout(() => {
+      this.findByIdListaCategoria(this.carregaListaParaEdicao.categoria.id);
+
+      this.carregaListaParaEdicao = new Lista();
+
+    }, 100);
+
+  }
+
+  carregaCategoriaPorId(id: number) {
+    this.categoriaService.getByIdCategoria(id).subscribe((resp: Categoria) => {
+      this.carregaCategoriaParaEdicao = resp;
+    });
+
+  }
+
+  atualizaCategoria() {
+    this.categoriaService.putCategoria(this.carregaCategoriaParaEdicao).subscribe((resp: Categoria) => {
+      console.log(resp);
+    });
+
+    setTimeout(() => {
+      this.getAllCategorias();
+
+    }, 100);
 
   }
 

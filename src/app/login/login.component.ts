@@ -31,8 +31,6 @@ export class LoginComponent implements OnInit {
     this.usuarioService.login(this.usuarioLogin).subscribe((resp: UsuarioLogin) => {
       this.usuarioLogin = resp;
 
-      alert('Login realizado com sucesso!');
-
       environment.token = this.usuarioLogin.token;
       environment.username = this.usuarioLogin.username;
       environment.senha = this.usuarioLogin.senha;

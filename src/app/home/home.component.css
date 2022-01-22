@@ -53,6 +53,24 @@
 
 }
 
+.container-section nav ul a .icone {
+  width: 5%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.container-section nav ul a .icone svg {
+  color: var(--text-green-titulo);
+
+  width: 100%;
+  height: auto;
+
+}
+
 .container-section nav ul .perfil {
   width: 100%;
   height: auto;
@@ -212,7 +230,10 @@
 .container-section .lista-categoria ul a {
   list-style: none;
 
-  width: 100%;
+  padding: 0.6% 0% 0.6% 0%;
+  margin-bottom: 0.3%;
+
+  width: 96%;
   height: auto;
 
   display: flex;
@@ -225,6 +246,10 @@
   transition: background-color, .3s ease-in-out;
 
   color: var(--text-black-lista);
+
+  background-color: var(--text-menu-hover);
+
+  box-shadow: 0px 3px 5px -5px var(--text-black);
 
 }
 
@@ -248,12 +273,16 @@
 
 .container-section .lista-categoria ul a .icone {
   margin-right: 2%;
+  margin-left: 2%;
+
   width: 2%;
   height: auto;
 
   cursor: pointer;
 
   text-decoration: none;
+
+  box-shadow: none !important;
 
 }
 
@@ -277,20 +306,18 @@
 }
 
 .container-section .lista-categoria ul .novo-item-lista input {
-  padding: 1% 0%;
+  padding: 1% 2%;
 
-  width: 75%;
+  width: 83%;
   height: auto;
-
-  background-color: turquoise;
 
   border: none;
   border-bottom: 2px solid transparent !important;
-  border-radius: 0px;
+  border-radius: 5px;
 
   outline: none;
 
-  background-color: var(--background-global);
+  background-color: var(--text-menu-hover);
 
   color: var(--text-black-lista);
 
@@ -321,6 +348,84 @@
   background-color: var(--text-green-titulo);
 
   font-weight: 500;
+
+  color: var(--text-white);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+/* MODAL PUT LISTA */
+.modal-body input {
+  padding: 1% 0%;
+
+  width: 100%;
+  height: auto;
+
+  background-color: turquoise;
+
+  border: none;
+  border-bottom: 2px solid transparent !important;
+  border-radius: 0px;
+
+  outline: none;
+
+  background-color: var(--background-sidebar);
+
+  color: var(--text-black-lista);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: border-bottom, .3 ease-in-out;
+
+}
+
+.modal-body input:focus {
+  border-bottom: 2px solid var(--text-green-titulo) !important;
+
+}
+
+.modal-footer button {
+  padding: 1% 2%;
+
+  width: 15%;
+  height: auto;
+
+  border: none;
+  border-radius: 5px;
+
+  outline: none;
+
+  background-color: var(--text-green-titulo);
+
+  font-weight: 500;
+
+  color: var(--text-white);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.modal-header button {
+  padding: 2%;
+
+  width: 30px;
+  height: 30px;
+
+  border: none;
+  border-radius: 5px;
+
+  outline: none;
+
+  background-color: var(--text-green-titulo);
+
+  font-weight: 800;
 
   color: var(--text-white);
 
