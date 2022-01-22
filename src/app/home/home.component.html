@@ -1,0 +1,17 @@
+<section class="container-section">
+  <nav>
+    <ul>
+      <a *ngFor='let item of categoriaArray' (click)='findByIdListaCategoria(item.id)' >
+        <img src="../../assets/img/note.png" alt="{{item.nome}}">
+        <p class="texto">{{item.nome}}</p>
+        <p class="qt-tens">{{item.lista.length}}</p>
+      </a>
+    </ul>
+  </nav>
+  <div class="lista-categoria">
+    <h1>{{categoria.nome}}</h1>
+    <ul>
+      <a *ngFor='let item of categoria.lista' >{{item.texto}}</a>
+    </ul>
+  </div>
+</section>

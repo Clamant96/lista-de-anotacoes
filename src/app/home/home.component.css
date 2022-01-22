@@ -1,0 +1,115 @@
+.container-section {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.container-section nav {
+  width: 25%;
+  height: 100vh;
+
+}
+
+.container-section nav ul {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.container-section nav ul a {
+  list-style: none;
+
+  padding: 2% 3%;
+
+  width: 96%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  transition: background-color, .3s ease-in-out;
+
+}
+
+.container-section nav ul a:hover {
+  background-color: var(--text-light-blue-cart);
+
+}
+
+.container-section nav ul a img {
+  width: 10%;
+  height: auto;
+
+}
+
+.container-section nav ul a .texto {
+  color: var(--text-gray2);
+
+  width: 75%;
+  height: auto;
+
+}
+
+.container-section nav ul a .qt-tens {
+  color: var(--text-gray);
+
+  width: 5%;
+  height: auto;
+
+}
+
+.container-section .lista-categoria {
+  width: 75%;
+  height: 100vh;
+
+}
+
+.container-section .lista-categoria h1 {
+  margin-bottom: 3%;
+
+  font-weight: 600;
+
+}
+
+.container-section .lista-categoria ul {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.container-section .lista-categoria ul a {
+  list-style: none;
+
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 18px;
+  font-weight: 400;
+
+  transition: background-color, .3s ease-in-out;
+
+  color: var(--text-gray3);
+
+}

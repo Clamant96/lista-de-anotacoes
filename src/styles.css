@@ -1,1 +1,251 @@
-/* You can add global styles to this file, and also import other style files */
+/* CONFIGURACOES GLOBAIS */
+
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&display=swap');
+
+/*
+font-family: 'Vollkorn', serif;
+font-family: 'Montserrat', sans-serif;
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+
+}
+
+html, body {
+  height: 100%;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+
+  background-color: var(--background-global) !important;
+
+  color: var(--text-black);
+
+}
+
+:root {
+  --background-global: #f9f9f9;
+  --background-header: #f1f1f1;
+  --background-footer: #222222;
+  --background-copyright: #191919;
+  --background-menu-hover: #262626;
+  --background-input: #e6e6e6;
+
+  --text-black: #262626;
+  --text-white: #f1f1f1;
+  --text-menu-hover: #f1f1f1;
+  --text-input: #c0bebe;
+  --text-p: #acacac;
+
+  --color-hr: #c9cacc;
+
+  --overlay: #282c4ea0;
+
+  --button: #032a63;
+  --button-hover: #0a2b5c;
+  --button-orange: #d17708;
+  --button-orange-hover: #bd6c08;
+
+  --textarea: #767676;
+
+  --background-card: #f9f9f9;
+
+  --shadow: #262626;
+
+  --text-h1: #032a63;
+
+  --focus-input: #091c3a;
+
+  --warning-border:#cc3300;
+  --sucess-border:#339900;
+  --warning: 	#cc330080;
+  --sucess: #33990080;
+
+  /*NOVO LAYOUT*/
+  --background-body: #f1f1f1;
+  --background-black: #000000;
+
+  --text-purple: #38095c;
+  --text-purple-tranparent: #38095c9a;
+  --text-gray: #919496;
+  --text-gray2: #4e5461;
+  --text-gray3: #a6a8af;
+  --text-light-gray: #e0e0e0;
+  --text-light-gray2: #d4d4d4;
+  --text-light-gray3: #dfe4ee;
+  --text-light-gray4: #ffffff;
+  --text-blue-light: #07a4dc;
+  --text-blue: #166386;
+  --text-green: #0d9d10;
+  --text-light-green: #1aa21d;
+  --text-light-orange: #ff881a;
+  --text-orange: #ff5d01;
+  --text-light-orange-plus: #e07644;
+  --text-orange-plus: #a42903;
+  --text-light-blue-cart: #4480c1;
+  --text-blue-cart: #032a63;
+  --text-light-white: #fdfdfd;
+  --text-dark-white: #dddddd;
+  --text-yellow: #ecebb0;
+
+  --alert-gren: #99cc333a;
+  --alert-text-gren: #339900;
+  --alert-red: #d453283a;
+  --alert-text-red: #a32a02;
+
+  --box-shadown: #262626;
+  --box-smooth-shadown: #2626269a;
+
+  --mandatory-red: #ad3737;
+  --mandatory-input: #de1616;
+  --mandatory-input-ok: #44cc3d;
+
+  --font-Amaranth: 'Amaranth', sans-serif;
+  --font-Montserrat: 'Montserrat', sans-serif;
+
+}
+
+::-webkit-scrollbar {
+  display: none;
+
+}
+
+h1 {
+  font-family: var(--font-Amaranth) !important;
+  font-size: 4rem !important;
+
+}
+
+h2 {
+  font-family: var(--font-Amaranth) !important;
+  font-size: 3rem !important;
+  font-weight: 700 !important;
+
+}
+
+h3 {
+  font-family: var(--font-Amaranth) !important;
+  font-size: 1.5rem !important;
+  font-weight: 400 !important;
+
+  color: var(--text-white) !important;
+
+}
+
+hr {
+  width: 66% !important;
+  height: auto;
+
+  border-top: 1.7px solid var(--color-hr) !important;
+  border-right: 0px solid var(--color-hr);
+  border-bottom: 0px solid var(--color-hr);
+  border-left: 0px solid var(--color-hr);
+
+}
+
+p {
+  margin: 0 !important;
+
+}
+
+
+ul {
+  margin: 0 !important;
+  padding: 0 !important;
+
+}
+
+.rota-link {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+
+  transition: color, .3s ease-in-out !important;
+
+}
+
+.rota-link:hover {
+  color: var(--button) !important;
+
+}
+
+/*.modal-content {
+  position: fixed !important;
+  bottom: 0 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end !important;
+  justify-content: flex-end !important;
+  width: 100%;
+  pointer-events: auto;
+  background-color: var(--overlay) !important;
+  background-clip: padding-box;
+  border: 0px solid rgba(0,0,0,.2);
+  border-radius: .3rem;
+  outline: none !important;
+
+}*/
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: none !important;
+  border-radius: .3rem !important;
+  outline: 0;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent !important;
+}
+
+.toast-header {
+  display: flex;
+  align-items: center;
+  padding: .5rem .75rem;
+  color: var(--text-white) !important;
+  background-color: #032a63 !important;
+  background-clip: padding-box;
+  border-bottom: 1px solid rgba(0,0,0,.05);
+  border-top-left-radius: calc(.25rem - 1px);
+  border-top-right-radius: calc(.25rem - 1px);
+  border-radius: 5px !important;
+}
+
+/* ATILIZACAO NAV / TABS */
+section[_ngcontent-wlk-c51] .exibirPerfil[_ngcontent-wlk-c51] .perfil[_ngcontent-wlk-c51] .gerenciarPerfil[_ngcontent-wlk-c51] .menu[_ngcontent-wlk-c51] .botoes[_ngcontent-wlk-c51] .comprar[_ngcontent-wlk-c51] button[_ngcontent-wlk-c51] {
+  text-decoration: none;
+  width: 100%;
+  height: 100% !important;
+  box-shadow: 0px 3px 5px -5px var(--box-shadown);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  color: #495057;
+  background-color: transparent !important;
+  border-color: none !important;
+}
+.nav-tabs .nav-link {
+  margin-bottom: 0px !important;
+  background: 0 0;
+  border: 1px solid transparent;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+}

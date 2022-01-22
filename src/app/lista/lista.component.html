@@ -1,0 +1,10 @@
+<section class="ontainer-section">
+  <div class="lista-categoria">
+    <app-home></app-home>
+  </div>
+  <nav>
+    <ul>
+      <a *ngFor='let item of categoria.lista' findByIdListaCategoria(item.id) >{{item.texto}}</a>
+    </ul>
+  </nav>
+</section>
