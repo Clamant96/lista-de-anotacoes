@@ -1,6 +1,6 @@
 import { environment } from './../../environments/environment.prod';
 import { Lista } from './../models/Lista';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -11,6 +11,11 @@ export class ListaService {
 
   public url = environment.endereco + environment.porta;
 
+  autorizacao = {
+    headers: new HttpHeaders().set('Authorization', localStorage.getItem('token') || '')
+
+  }
+
   constructor(
     private http: HttpClient
 
@@ -18,22 +23,22 @@ export class ListaService {
 
   getByIdLista(id: number): Observable<Lista> {
 
-    return this.http.get<Lista>(`${this.url}/lista/${id}`);
+    return this.http.get<Lista>(`${this.url}/lista/${id}`, this.autorizacao);
   }
 
   portLista(lista: Lista): Observable<Lista> {
 
-    return this.http.post<Lista>(`${this.url}/lista`, lista);
+    return this.http.post<Lista>(`${this.url}/lista`, lista, this.autorizacao);
   }
 
   putLista(lista: Lista): Observable<Lista> {
 
-    return this.http.put<Lista>(`${this.url}/lista`, lista);
+    return this.http.put<Lista>(`${this.url}/lista`, lista, this.autorizacao);
   }
 
   deleteLista(id: number) {
 
-    return this.http.delete(`${this.url}/lista/${id}`);
+    return this.http.delete(`${this.url}/lista/${id}`, this.autorizacao);
   }
 
 }

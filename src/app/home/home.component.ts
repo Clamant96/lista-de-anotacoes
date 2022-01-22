@@ -196,4 +196,28 @@ export class HomeComponent implements OnInit {
 
   }
 
+  excluirLista(id: number) {
+    this.listaService.deleteLista(id).subscribe(resp => {
+      console.log(resp);
+    });
+
+    setTimeout(() => {
+      this.findByIdListaCategoria(this.categoria.id);
+
+    }, 100);
+
+  }
+
+  excluirCategoria(id: number) {
+    this.categoriaService.deleteCategoria(id).subscribe(resp => {
+      console.log(resp);
+    });
+
+    setTimeout(() => {
+      this.getAllCategorias();
+
+    }, 100);
+
+  }
+
 }

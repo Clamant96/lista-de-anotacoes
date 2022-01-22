@@ -14,6 +14,9 @@
         <img src="../../assets/img/note.png" alt="{{item.nome}}" (click)='findByIdListaCategoria(item.id)'>
         <p class="texto" (click)='findByIdListaCategoria(item.id)' >{{item.nome}}</p>
         <p class="qt-tens" (click)='findByIdListaCategoria(item.id)' >{{item.lista.length}}</p>
+        <div class="icone-excluir" (click)='excluirCategoria(item.id)' >
+          <img src="../../assets/img/excluir-icone.png" alt="{{item.nome}}" >
+        </div>
         <div class="icone" data-bs-toggle="modal" data-bs-target="#putCategoria" (click)='carregaCategoriaPorId(item.id)'>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
             <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
@@ -40,6 +43,9 @@
         </p>
         <a class="icone" data-bs-toggle="modal" data-bs-target="#putLista" (click)='carregaItemLista(item.id)' >
           <img src="../../assets/img/editar-icone.png" alt="{{item.texto}}" >
+        </a>
+        <a class="icone-excluir" (click)='excluirLista(item.id)' >
+          <img src="../../assets/img/excluir-icone.png" alt="{{item.texto}}" >
         </a>
       </a>
       <div class="novo-item-lista" *ngIf="categoria.nome != null" >
