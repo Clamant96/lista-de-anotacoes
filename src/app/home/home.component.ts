@@ -38,6 +38,7 @@ export class HomeComponent implements OnInit {
   public id = environment.id;
 
   public atualizacao: boolean = false;
+  public travaMenu: boolean = false;
 
   constructor(
     private router: Router,
@@ -58,12 +59,17 @@ export class HomeComponent implements OnInit {
   }
 
   findByIdListaCategoria(id: number) {
-    console.log(`ID CLICADO: ${id}`);
+    if(screen.width <= 600 && !this.travaMenu) {
+      window.document.querySelector('.menu-responsivo')?.setAttribute('style', 'margin-left: -100%;');
+      this.travaMenu = !this.travaMenu;
+
+    }
 
     this.categoriaService.getByIdCategoria(id).subscribe((resp: Categoria) => {
       this.categoria = resp;
 
     });
+
   }
 
   getAllCategorias() {
@@ -218,6 +224,18 @@ export class HomeComponent implements OnInit {
 
     }, 100);
 
+  }
+
+  responsividadeMenu() {
+    if(screen.width <= 600 && !this.travaMenu) {
+      window.document.querySelector('.menu-responsivo')?.setAttribute('style', 'margin-left: -100%;');
+      this.travaMenu = !this.travaMenu;
+
+    }else if(screen.width <= 600 && this.travaMenu) {
+      window.document.querySelector('.menu-responsivo')?.setAttribute('style', 'margin-left: 0%;');
+      this.travaMenu = !this.travaMenu;
+
+    }
   }
 
 }

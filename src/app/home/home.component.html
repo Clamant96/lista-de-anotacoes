@@ -1,5 +1,5 @@
 <section class="container-section">
-  <nav>
+  <nav class="menu-responsivo" >
     <ul>
       <div class="perfil">
         <img src="{{avatar}}" alt="{{username}}">
@@ -26,7 +26,13 @@
     </ul>
   </nav>
   <div class="lista-categoria">
-    <h1>{{categoria.nome}}</h1>
+    <h1>
+      <div class="menu-icone" (click)="responsividadeMenu()" >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+      </div>
+      {{categoria.nome}}</h1>
     <ul>
       <a *ngFor='let item of categoria.lista' >
         <div class="icone" *ngIf="item.ativo" (click)='alterarStatusItemLista(item)' >

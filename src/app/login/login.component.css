@@ -185,12 +185,12 @@
 
     font-family: 'Vollkorn', serif !important;
 
-    background-image: linear-gradient(to right top, #032a63 , #5c7fb4);
+    background-image: var(--background-global);
 
   }
 
   .container-login .pagina {
-    background-color: var(--overlay);
+    background-color: var(--text-green-titulo);
 
     display: flex;
     align-items: center;
