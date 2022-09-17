@@ -33,6 +33,9 @@ export class CadastroComponent implements OnInit {
 
   selecaoAvatar(event: any) {
     this.avatar = event.target.value;
+
+    this.usuario.avatar = event.target.value;
+
   }
 
   /* CADASTRA UM NOVO USUARIO NA BASE DE DADOS */
@@ -42,6 +45,8 @@ export class CadastroComponent implements OnInit {
       alert("A senha estão incorretas!")
 
     }else{
+      console.log("USUARIO: ");
+      console.log(this.usuario);
       this.usuarioService.cadastro(this.usuario).subscribe((resp: Usuario) => {
         this.usuario = resp;
 

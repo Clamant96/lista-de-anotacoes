@@ -40,6 +40,8 @@ export class HomeComponent implements OnInit {
   public atualizacao: boolean = false;
   public travaMenu: boolean = false;
 
+  public switch: boolean = true; // CAPTURA O VALOR DO SWITCH CADASTRADO PELO USUARIO
+
   constructor(
     private router: Router,
     private listaService: ListaService,
@@ -56,6 +58,43 @@ export class HomeComponent implements OnInit {
     }
 
     this.getAllCategorias();
+
+    this.alteraVisualizacao();
+
+  }
+
+  alteraVisualizacao() {
+
+    this.switch = !this.switch;
+
+    this.gerenciaCores();
+
+  }
+
+  gerenciaCores() {
+
+    if(this.switch) {
+      window.document.querySelector('html')?.setAttribute('style', 'background-color: var(--background-footer) !important;');
+      window.document.querySelector('body')?.setAttribute('style', 'background-color: var(--background-footer) !important;');
+
+      window.document.querySelector('.cor-responsiva')?.setAttribute('style', 'background-color: var(--background-menu-hover) !important;');
+
+      window.document.querySelector('.username')?.setAttribute('style', 'color: var(--text-input) !important;');
+
+      window.document.querySelector('.nova-categoria input')?.setAttribute('style', 'background-color: var(--text-input) !important; color: var(--text-black-lista) !important;');
+
+    }else {
+      window.document.querySelector('html')?.setAttribute('style', 'background-color: var(--background-global) !important;');
+      window.document.querySelector('body')?.setAttribute('style', 'background-color: var(--background-global) !important;');
+
+      window.document.querySelector('.cor-responsiva')?.setAttribute('style', 'background-color: var(--background-sidebar) !important;');
+
+      window.document.querySelector('.username')?.setAttribute('style', 'color: var(--text-black-lista) !important;');
+
+      window.document.querySelector('.nova-categoria input')?.setAttribute('style', 'background-color: var(--background-global) !important; color: var(--text-black-lista) !important;');
+
+    }
+
   }
 
   findByIdListaCategoria(id: number) {
@@ -130,14 +169,14 @@ export class HomeComponent implements OnInit {
       if(item.id == this.categoria.id) {
         item = this.categoria;
 
-        console.log('ITEM ATUALIZADO: ');
-        console.log(item);
+        // console.log('ITEM ATUALIZADO: ');
+        // console.log(item);
       }
       return item;
     });
 
-    console.log('ARRAY CATEGORIA: ');
-    console.log(this.categoriaArray);
+    // console.log('ARRAY CATEGORIA: ');
+    // console.log(this.categoriaArray);
 
   }
 
@@ -148,7 +187,7 @@ export class HomeComponent implements OnInit {
     this.editaLista.texto = lista.texto;
 
     this.listaService.putLista(this.editaLista).subscribe((resp: Lista) => {
-      console.log(resp);
+      // console.log(resp);
     });
 
     setTimeout(() => {
@@ -168,7 +207,7 @@ export class HomeComponent implements OnInit {
   }
 
   atualizaLista() {
-    console.log(this.carregaListaParaEdicao);
+    // console.log(this.carregaListaParaEdicao);
 
     this.listaService.putLista(this.carregaListaParaEdicao).subscribe((resp: Lista) => {
       console.log(resp);
@@ -192,7 +231,7 @@ export class HomeComponent implements OnInit {
 
   atualizaCategoria() {
     this.categoriaService.putCategoria(this.carregaCategoriaParaEdicao).subscribe((resp: Categoria) => {
-      console.log(resp);
+      // console.log(resp);
     });
 
     setTimeout(() => {
@@ -204,7 +243,7 @@ export class HomeComponent implements OnInit {
 
   excluirLista(id: number) {
     this.listaService.deleteLista(id).subscribe(resp => {
-      console.log(resp);
+      // console.log(resp);
     });
 
     setTimeout(() => {
@@ -216,7 +255,7 @@ export class HomeComponent implements OnInit {
 
   excluirCategoria(id: number) {
     this.categoriaService.deleteCategoria(id).subscribe(resp => {
-      console.log(resp);
+      // console.log(resp);
     });
 
     setTimeout(() => {
@@ -235,7 +274,38 @@ export class HomeComponent implements OnInit {
       window.document.querySelector('.menu-responsivo')?.setAttribute('style', 'margin-left: 0%;');
       this.travaMenu = !this.travaMenu;
 
+    }else if(screen.width > 600 && !this.travaMenu) {
+      window.document.querySelector('.menu-responsivo')?.setAttribute('style', 'display: none !important;');
+      window.document.querySelector('.lista-categoria')?.setAttribute('style', 'width: 100% !important;');
+      // window.document.querySelector('.texto')?.setAttribute('style', 'display: flex; align-items: center; justify-content: center;');
+
+      this.travaMenu = !this.travaMenu;
+
+      if(this.switch) {
+        window.document.querySelector('.cor-responsiva')?.setAttribute('style', 'display: none !important; background-color: var(--background-menu-hover) !important;');
+
+      }else {
+        window.document.querySelector('.cor-responsiva')?.setAttribute('style', 'display: none !important; background-color: var(--background-sidebar) !important;');
+
+      }
+
+    }else if(screen.width > 600 && this.travaMenu) {
+      window.document.querySelector('.menu-responsivo')?.setAttribute('style', 'display: block; width: 25% !important;');
+      window.document.querySelector('.lista-categoria')?.setAttribute('style', 'width: 73% !important;');
+      // window.document.querySelector('.texto')?.setAttribute('style', 'display: flex; align-items: center; justify-content: flex-start;');
+
+      this.travaMenu = !this.travaMenu;
+
+      if(this.switch) {
+        window.document.querySelector('.cor-responsiva')?.setAttribute('style', 'background-color: var(--background-menu-hover) !important;');
+
+      }else {
+        window.document.querySelector('.cor-responsiva')?.setAttribute('style', 'background-color: var(--background-sidebar) !important;');
+
+      }
+
     }
+
   }
 
 }
